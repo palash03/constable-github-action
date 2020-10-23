@@ -3,7 +3,6 @@ const github = require('@actions/github')
 const fs = require('fs');
 const table = require('markdown-table')
 const issueChecker = require('./src/issue-checker');
-const { grade_update } = require('./src/update-grade');
 
 var readme_present = 0;
 var contributions_present = 0;
@@ -111,9 +110,6 @@ async function run() {
   const grade = calculateGrade(score);
   core.info(`Grade for this repo =  ` + grade);
   core.setOutput('grade', grade)
-  
-  const _path = `${repository}/${github.base_ref}`
-  grade_update(_path, grade)
 
   var report = table([
     ['Item', 'Weight', 'Score'],
