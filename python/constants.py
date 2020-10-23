@@ -1,0 +1,1 @@
+FIREBASE_BASE_URL = "https://constable-github.firebaseio.com"
